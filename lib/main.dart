@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -91,6 +93,7 @@ class _MyAppState extends State<MyApp> {
                   },
                 ),
               ),
+              SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
@@ -102,6 +105,36 @@ class _MyAppState extends State<MyApp> {
                 child: Text('Submit'),
               ),
               // Spacer(),
+              SizedBox(height: 16),
+              Row(
+                children: [
+                  Expanded(child: Divider(thickness: 2)),
+                  Text(
+                    "OR",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                      child: Divider(
+                    thickness: 2,
+                  )),
+                ],
+              ),
+
+              Row(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Sign up with Google",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                    ),
+                  ),
+                  // ElevatedButton(onPressed: () {}, child: Text("Google")),
+                ],
+              ),
             ],
           ),
         ),
