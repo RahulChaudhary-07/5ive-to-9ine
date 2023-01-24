@@ -44,12 +44,12 @@ class _MyAppState extends State<MyApp> {
               ),
               Row(
                 children: [
-                  Name_Widget(name: "First Name"),
+                  NameWidget(name: "First Name"),
                   SizedBox(width: 20),
-                  Name_Widget(name: "Last Name"),
+                  NameWidget(name: "Last Name"),
                 ],
               ),
-              address_widget(label: "address"),
+              AddressWidget(label: "address"),
 
               Row(
                 children: [
@@ -103,36 +103,47 @@ class _MyAppState extends State<MyApp> {
                   }
                 },
                 child: Text('Submit'),
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                  ),
+                ),
               ),
               // Spacer(),
-              SizedBox(height: 16),
+              SizedBox(height: 12),
               Row(
                 children: [
                   Expanded(child: Divider(thickness: 2)),
+                  SizedBox(width: 10),
                   Text(
                     "OR",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey.shade500,
+                    ),
                   ),
-                  Expanded(
-                      child: Divider(
-                    thickness: 2,
-                  )),
+                  SizedBox(width: 10),
+                  Expanded(child: Divider(thickness: 2)),
                 ],
+              ),
+              SizedBox(
+                height: 10,
               ),
 
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Sign up with Google",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.white),
-                    ),
+                  CommonButton(
+                    image: "google",
+                    title: "google",
                   ),
-                  // ElevatedButton(onPressed: () {}, child: Text("Google")),
+                  CommonButton(
+                    image: "facebook",
+                    title: "facebook",
+                  ),
                 ],
               ),
             ],
@@ -143,9 +154,49 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class Name_Widget extends StatelessWidget {
+class CommonButton extends StatelessWidget {
+  final String image, title;
+
+  const CommonButton({
+    required this.image,
+    required this.title,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {},
+      child: Row(
+        children: [
+          Image.asset(
+            "assets/images/$image.png",
+            scale: 30,
+          ),
+          SizedBox(
+            width: 5,
+          ),
+          Text(
+            "Sign up with $title",
+            style: TextStyle(color: Colors.black, fontSize: 12),
+          ),
+        ],
+      ),
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+        ),
+        backgroundColor: MaterialStateProperty.all(Colors.white),
+      ),
+    );
+  }
+}
+
+class NameWidget extends StatelessWidget {
   final String? name;
-  const Name_Widget({
+  const NameWidget({
     Key? key,
     this.name,
   }) : super(key: key);
@@ -169,9 +220,9 @@ class Name_Widget extends StatelessWidget {
   }
 }
 
-class address_widget extends StatelessWidget {
+class AddressWidget extends StatelessWidget {
   final String? label;
-  const address_widget({
+  const AddressWidget({
     Key? key,
     this.label,
   }) : super(key: key);
