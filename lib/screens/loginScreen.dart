@@ -14,12 +14,8 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowMaterialGrid: false,
-      theme: ThemeData(
-        // fontFamily: '',
-        primaryTextTheme: GoogleFonts.playfairDisplayTextTheme(),
-      ),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(primaryTextTheme: GoogleFonts.playfairDisplayTextTheme()),
       home: Scaffold(
         body: Form(
           key: _formKey,
@@ -34,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 "Welcome",
                 style: TextStyle(
                   color: Colors.blueAccent,
-                  fontSize: 25,
+                  fontSize: 24,
                   fontWeight: FontWeight.w900,
                 ),
               ),

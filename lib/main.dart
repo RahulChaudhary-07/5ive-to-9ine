@@ -17,7 +17,10 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // initialRoute: '/',
+      initialRoute: '/initial',
+      routes: {
+        '/initial': (context) => SplashScreen(),
+      },
       home: LoginScreen(),
     );
   }
