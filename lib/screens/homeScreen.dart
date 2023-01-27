@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:internship_5to9_1/screens/loginScreen.dart';
+import 'package:internship_5to9_1/screens/SignUpScreen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
                 Navigator.pop(
                   context,
                   MaterialPageRoute(
-                    builder: ((context) => LoginScreen()),
+                    builder: ((context) => SignUpScreen()),
                   ),
                 );
               },

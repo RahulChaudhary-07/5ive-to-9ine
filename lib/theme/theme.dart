@@ -5,7 +5,7 @@ ThemeData getMaterialApp(context) {
   return ThemeData(
     textTheme: GoogleFonts.playfairDisplayTextTheme(Theme.of(context).textTheme).copyWith(
       headline6: GoogleFonts.playfairDisplay(
-        textStyle: TextStyle(fontWeight: FontWeight.w500),
+        textStyle: TextStyle(fontWeight: FontWeight.bold, color: Colors.red, backgroundColor: Colors.pink),
       ),
     ),
   );
