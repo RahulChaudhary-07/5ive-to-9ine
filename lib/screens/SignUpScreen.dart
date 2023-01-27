@@ -44,6 +44,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ],
             ),
             AddressWidget(label: "E-mail"),
+            // AddressWidget(label: 'Password'),
 
             // Row(
             //   children: [
