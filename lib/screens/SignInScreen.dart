@@ -53,6 +53,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     height: 30,
                   ),
                   Column(
+                    // crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       TextFormField(
                         decoration: InputDecoration(
@@ -84,23 +85,26 @@ class _SignInScreenState extends State<SignInScreen> {
                         ],
                       ),
                       SizedBox(height: 10),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: ((context) => HomeScreen()),
-                            ),
-                          );
-                          if (_formKey.currentState!.validate()) {
-                            print('validated');
-                          }
-                        },
-                        child: Text('Submit'),
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
+                      SizedBox(
+                        width: double.maxFinite,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: ((context) => HomeScreen()),
+                              ),
+                            );
+                            if (_formKey.currentState!.validate()) {
+                              print('validated');
+                            }
+                          },
+                          child: Text('Submit'),
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16),
+                              ),
                             ),
                           ),
                         ),

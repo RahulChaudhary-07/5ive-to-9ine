@@ -44,35 +44,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ],
             ),
             AddressWidget(label: "E-mail"),
-            // AddressWidget(label: 'Password'),
-
-            // Row(
-            //   children: [
-            //     Expanded(
-            //       // flex: 3,
-            //       child: TextFormField(
-            //         decoration: InputDecoration(
-            //           labelText: "Pincode",
-            //         ),
-            //         validator: (value) {
-            //           if (value!.isEmpty || !RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
-            //             return "Format is wrong";
-            //           } else {
-            //             return null;
-            //           }
-            //         },
-            //       ),
-            //     ),
-            //     SizedBox(width: 20),
-            //     Expanded(
-            //       child: TextFormField(
-            //         decoration: InputDecoration(
-            //           labelText: "Country",
-            //         ),
-            //       ),
-            //     ),
-            //   ],
-            // ),
             Expanded(
               child: TextFormField(
                 inputFormatters: [],
@@ -110,7 +81,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
             ),
-
             SizedBox(height: 10),
             Row(
               children: [
@@ -128,7 +98,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Expanded(child: Divider(thickness: 2)),
               ],
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

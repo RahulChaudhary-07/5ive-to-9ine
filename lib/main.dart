@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:internship_5to9_1/screens/SignInScreen.dart';
 import 'package:internship_5to9_1/screens/homeScreen.dart';
 import 'package:internship_5to9_1/screens/SignUpScreen.dart';
 import 'package:internship_5to9_1/screens/splashScreen.dart';
@@ -29,7 +28,7 @@ class _MyAppState extends State<MyApp> {
         '/initial': (context) => SplashScreen(),
         '/home': (context) => HomeScreen(),
       },
-      home: SignUpScreen(),
+      home: HomeScreen(),
     );
   }
 }
