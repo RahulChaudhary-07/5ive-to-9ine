@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:internship_5to9_1/StackWidget/PopularJob.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -7,18 +8,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // appBar: AppBar(
-        //   leading: IconButton(
-        //       onPressed: () {
-        //         Navigator.pop(
-        //           context,
-        //           MaterialPageRoute(
-        //             builder: ((context) => SignUpScreen()),
-        //           ),
-        //         );
-        //       },
-        //       icon: Icon(Icons.arrow_back)),
-        // ),
+        // backgroundColor: Colors.grey,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -28,11 +18,6 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 height: 30,
                 width: 130,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 222, 220, 220),
-                  border: Border.all(color: Color.fromARGB(255, 218, 214, 214), width: 1),
-                  borderRadius: BorderRadius.circular(20),
-                ),
                 child: Text(
                   "Hello, Rahul",
                   style: TextStyle(
@@ -45,26 +30,44 @@ class HomeScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 16.0, top: 6.0),
               child: Text(
-                "Search, Choose & Apply",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                "Find your best job.",
+                style: TextStyle(fontSize: 35, fontWeight: FontWeight.w900),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  suffixIcon: Icon(Icons.search),
+                  hintText: 'what job are you looking for?',
+                  labelText: "Search",
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: Text(
+                "Popular Jobs.",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+              ),
+            ),
+            Stack(
+              children: [
+                StackWidget(),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: Text(
+                "Nearby Jobs.",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
               ),
             ),
           ],
         ),
-        // body: Center(
-        //   child: Container(
-        //     child: ElevatedButton(
-        //         onPressed: () {
-        //           Navigator.pop(
-        //             context,
-        //             MaterialPageRoute(
-        //               builder: ((context) => SignUpScreen()),
-        //             ),
-        //           );
-        //         },
-        //         child: Text("Simon Go Back")),
-        //   ),
-        // ),
       ),
     );
   }

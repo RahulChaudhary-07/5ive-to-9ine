@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:internship_5to9_1/screens/homeScreen.dart';
-import 'package:internship_5to9_1/screens/SignUpScreen.dart';
+import 'package:internship_5to9_1/screens/HomeScreen.dart';
+// import 'package:internship_5to9_1/screens/SignUpScreen.dart';
 import 'package:internship_5to9_1/screens/splashScreen.dart';
 import 'package:internship_5to9_1/theme/theme.dart';
 
@@ -21,6 +21,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: getMaterialApp(context),
+
       // themeMode: ThemeMode.dark,
       // darkTheme: ThemeData.dark(),
       initialRoute: '/initial',
