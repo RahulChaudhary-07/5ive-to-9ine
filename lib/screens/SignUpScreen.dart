@@ -65,15 +65,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 width: double.maxFinite,
                 child: ElevatedButton(
                   onPressed: () {
+                    // if (_formKey.currentState!.validate() == false) {
+                    //   print('validated');
+                    //   return;
+                    // }
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: ((context) => HomeScreen()),
                       ),
                     );
-                    if (_formKey.currentState!.validate()) {
-                      print('validated');
-                    }
                   },
                   child: Text('Submit'),
                   style: ButtonStyle(
