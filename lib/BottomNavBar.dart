@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+class BottomNavBar extends StatelessWidget {
+  const BottomNavBar({super.key, required this.onChange});
 
-  @override
-  State<BottomNavBar> createState() => _BottomNavBarState();
-}
+  final Function(int) onChange;
 
-class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return GNav(
+      onTabChange: onChange,
       tabs: [
         GButton(
           icon: Icons.home_outlined,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:internship_5to9_1/screens/SignInScreen.dart';
-import 'package:internship_5to9_1/screens/HomeScreen.dart';
+import 'package:internship_5to9_1/screens/homeScreen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);

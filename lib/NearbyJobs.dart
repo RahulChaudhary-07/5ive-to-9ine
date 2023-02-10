@@ -1,4 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:internship_5to9_1/controllers/favourite_controller.dart';
+import 'package:internship_5to9_1/core/localstorage.dart';
 
 class NearbyJobWidget extends StatefulWidget {
   const NearbyJobWidget({super.key});
@@ -10,6 +15,7 @@ class NearbyJobWidget extends StatefulWidget {
 class _NearbyJobWidgetState extends State<NearbyJobWidget> {
   final jobs = [
     Job(
+      id: 1,
       type: 'Delivery Boy',
       company: 'Blue Dart',
       money: '\$55/h',
@@ -18,6 +24,7 @@ class _NearbyJobWidgetState extends State<NearbyJobWidget> {
       location: 'Bharuch,Gujarat',
     ),
     Job(
+      id: 2,
       type: 'Sweeper',
       money: '\$100/D',
       company: 'BMC',
@@ -26,6 +33,7 @@ class _NearbyJobWidgetState extends State<NearbyJobWidget> {
       location: 'Baroda,Gujarat',
     ),
     Job(
+      id: 3,
       type: 'Product Designer',
       money: '\$70/D',
       company: 'Aim2Excel',
@@ -34,6 +42,7 @@ class _NearbyJobWidgetState extends State<NearbyJobWidget> {
       location: 'Netrang,Gujarat',
     ),
     Job(
+      id: 4,
       type: 'Chef',
       money: '\$20/D',
       company: 'Gogi Ka Dhaba',
@@ -42,6 +51,7 @@ class _NearbyJobWidgetState extends State<NearbyJobWidget> {
       location: 'Palej,Gujarat',
     ),
     Job(
+      id: 5,
       type: 'Waiter',
       money: '\$45/D',
       company: 'LaPinoz',
@@ -50,6 +60,7 @@ class _NearbyJobWidgetState extends State<NearbyJobWidget> {
       location: 'Ankleshwar,Gujarat',
     ),
     Job(
+      id: 6,
       type: 'Labour',
       money: '\$50/D',
       company: 'Godrej',
@@ -58,6 +69,7 @@ class _NearbyJobWidgetState extends State<NearbyJobWidget> {
       location: 'Valia,Gujarat',
     ),
     Job(
+      id: 7,
       type: 'Receptionist',
       money: '\$10/D',
       company: 'DMart',
@@ -81,7 +93,7 @@ class _NearbyJobWidgetState extends State<NearbyJobWidget> {
   }
 }
 
-class NearbyJobCard extends StatelessWidget {
+class NearbyJobCard extends StatefulWidget {
   const NearbyJobCard({
     Key? key,
     required this.job,
@@ -89,6 +101,11 @@ class NearbyJobCard extends StatelessWidget {
 
   final Job job;
 
+  @override
+  State<NearbyJobCard> createState() => _NearbyJobCardState();
+}
+
+class _NearbyJobCardState extends State<NearbyJobCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -107,7 +124,7 @@ class NearbyJobCard extends StatelessWidget {
         children: [
           Padding(padding: EdgeInsets.all(10)),
           Image.asset(
-            job.image,
+            widget.job.image,
             height: 40,
             width: 40,
           ),
@@ -119,7 +136,7 @@ class NearbyJobCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                job.type,
+                widget.job.type,
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.black,
@@ -127,7 +144,7 @@ class NearbyJobCard extends StatelessWidget {
                 ),
               ),
               Text(
-                job.company,
+                widget.job.company,
                 style: TextStyle(
                   backgroundColor: Colors.grey.shade100,
                   color: Colors.black,
@@ -138,7 +155,7 @@ class NearbyJobCard extends StatelessWidget {
               //   height: 10,
               // ),
               Text(
-                job.location,
+                widget.job.location,
                 style: TextStyle(
                   backgroundColor: Colors.grey.shade100,
                   color: Colors.black,
@@ -158,7 +175,7 @@ class NearbyJobCard extends StatelessWidget {
                 padding: EdgeInsets.only(right: 50),
               ),
               Text(
-                job.time,
+                widget.job.time,
                 style: TextStyle(
                   backgroundColor: Colors.grey.shade100,
                   color: Colors.black,
@@ -166,7 +183,7 @@ class NearbyJobCard extends StatelessWidget {
                 ),
               ),
               Text(
-                job.money,
+                widget.job.money,
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -177,10 +194,22 @@ class NearbyJobCard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 50, right: 10),
-            child: Icon(
-              Icons.bookmark_border_outlined,
-              size: 20,
-              color: Colors.black,
+            child: GestureDetector(
+              onTap: () async {
+                if (FavouriteController.instance.isFavourite(widget.job.id)) {
+                  await FavouriteController.instance.removeJob(widget.job);
+                } else {
+                  await FavouriteController.instance.addJob(widget.job);
+                }
+                setState(() {});
+              },
+              child: Icon(
+                FavouriteController.instance.isFavourite(widget.job.id)
+                    ? Icons.bookmark_outlined
+                    : Icons.bookmark_border_outlined,
+                size: 20,
+                color: Colors.black,
+              ),
             ),
           ),
         ],
@@ -196,12 +225,43 @@ class Job {
   final String image;
   final String time;
   final String location;
+  final int id;
+
   Job({
     required this.type,
     required this.company,
     required this.money,
     required this.image,
     required this.time,
+    required this.id,
     required this.location,
   });
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'type': type,
+      'company': company,
+      'money': money,
+      'image': image,
+      'time': time,
+      'location': location,
+      'id': id,
+    };
+  }
+
+  factory Job.fromMap(Map<String, dynamic> map) {
+    return Job(
+      type: map['type'] as String,
+      company: map['company'] as String,
+      money: map['money'] as String,
+      image: map['image'] as String,
+      time: map['time'] as String,
+      location: map['location'] as String,
+      id: map['id'] as int,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory Job.fromJson(String source) => Job.fromMap(json.decode(source) as Map<String, dynamic>);
 }
