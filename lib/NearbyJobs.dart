@@ -10,39 +10,60 @@ class NearbyJobWidget extends StatefulWidget {
 class _NearbyJobWidgetState extends State<NearbyJobWidget> {
   final jobs = [
     Job(
-      type: 'Delivery',
-      duration: 'Full Time',
+      type: 'Delivery Boy',
+      company: 'Blue Dart',
       money: '\$55/h',
+      image: 'assets/NearbyJob/delivery.png',
+      time: 'Full Time',
+      location: 'Bharuch,Gujarat',
     ),
     Job(
       type: 'Sweeper',
-      money: '\$100/h',
-      duration: 'Full Time',
+      money: '\$100/D',
+      company: 'BMC',
+      image: "assets/NearbyJob/sweeper.png",
+      time: 'Part Time',
+      location: 'Baroda,Gujarat',
     ),
     Job(
       type: 'Product Designer',
-      money: '\$70/h',
-      duration: 'Full Time',
+      money: '\$70/D',
+      company: 'Aim2Excel',
+      image: "assets/NearbyJob/coder.png",
+      time: 'Full Time',
+      location: 'Netrang,Gujarat',
     ),
     Job(
       type: 'Chef',
-      money: '\$20/h',
-      duration: 'Part Time',
+      money: '\$20/D',
+      company: 'Gogi Ka Dhaba',
+      image: "assets/NearbyJob/hotel.png",
+      time: 'Part Time',
+      location: 'Palej,Gujarat',
     ),
     Job(
-      type: 'Worker',
-      money: '\$45/h',
-      duration: 'Full Time',
+      type: 'Waiter',
+      money: '\$45/D',
+      company: 'LaPinoz',
+      image: "assets/NearbyJob/technician.png",
+      time: 'Full Time',
+      location: 'Ankleshwar,Gujarat',
     ),
     Job(
       type: 'Labour',
-      money: '\$50/h',
-      duration: 'Part Time',
+      money: '\$50/D',
+      company: 'Godrej',
+      image: "assets/NearbyJob/worker.png",
+      time: 'Part Time',
+      location: 'Valia,Gujarat',
     ),
     Job(
       type: 'Receptionist',
-      money: '\$10/h',
-      duration: 'Full Time',
+      money: '\$10/D',
+      company: 'DMart',
+      image: "assets/NearbyJob/driver.png",
+      time: 'Full Time',
+      location: 'Vadodara,Gujarat',
     ),
   ];
 
@@ -84,10 +105,11 @@ class NearbyJobCard extends StatelessWidget {
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(padding: EdgeInsets.all(14)),
-          Icon(
-            Icons.computer,
-            size: 20,
+          Padding(padding: EdgeInsets.all(10)),
+          Image.asset(
+            job.image,
+            height: 40,
+            width: 40,
           ),
           SizedBox(
             width: 30,
@@ -104,13 +126,21 @@ class NearbyJobCard extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
-                height: 5,
-              ),
               Text(
-                job.duration,
+                job.company,
                 style: TextStyle(
-                  backgroundColor: Colors.grey.shade200,
+                  backgroundColor: Colors.grey.shade100,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              Text(
+                job.location,
+                style: TextStyle(
+                  backgroundColor: Colors.grey.shade100,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
@@ -122,10 +152,18 @@ class NearbyJobCard extends StatelessWidget {
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(right: 80),
+                padding: EdgeInsets.only(right: 50),
+              ),
+              Text(
+                job.time,
+                style: TextStyle(
+                  backgroundColor: Colors.grey.shade100,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Text(
                 job.money,
@@ -153,12 +191,17 @@ class NearbyJobCard extends StatelessWidget {
 
 class Job {
   final String type;
-  final String duration;
+  final String company;
   final String money;
-
+  final String image;
+  final String time;
+  final String location;
   Job({
     required this.type,
-    required this.duration,
+    required this.company,
     required this.money,
+    required this.image,
+    required this.time,
+    required this.location,
   });
 }

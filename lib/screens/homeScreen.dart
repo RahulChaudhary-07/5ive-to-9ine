@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:internship_5to9_1/NearbyJobs.dart';
 import 'package:internship_5to9_1/PopularJob.dart';
+import 'package:internship_5to9_1/BottomNavBar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -83,6 +84,7 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+        bottomNavigationBar: BottomNavBar(),
       ),
     );
   }
