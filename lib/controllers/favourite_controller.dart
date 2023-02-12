@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:internship_5to9_1/core/localstorage.dart';
 
@@ -45,8 +44,7 @@ class FavouriteController {
 
     jobs.addAll(favJobs);
 
-    LocalStorage.instance.prefs
-        .setString("fav", favJobs.map((e) => e.toJson()).toList().toString());
+    LocalStorage.instance.prefs.setString("fav", favJobs.map((e) => e.toJson()).toList().toString());
   }
 
   Future<void> removeJob(Job job) async {
@@ -58,7 +56,6 @@ class FavouriteController {
 
     jobs.addAll(favJobs);
 
-    LocalStorage.instance.prefs
-        .setString("fav", favJobs.map((e) => e.toJson()).toList().toString());
+    LocalStorage.instance.prefs.setString("fav", favJobs.map((e) => e.toJson()).toList().toString());
   }
 }

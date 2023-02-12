@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:internship_5to9_1/controllers/favourite_controller.dart';
-import 'package:internship_5to9_1/core/localstorage.dart';
 
 class NearbyJobWidget extends StatefulWidget {
   const NearbyJobWidget({super.key});
@@ -204,9 +203,7 @@ class _NearbyJobCardState extends State<NearbyJobCard> {
                 setState(() {});
               },
               child: Icon(
-                FavouriteController.instance.isFavourite(widget.job.id)
-                    ? Icons.bookmark_outlined
-                    : Icons.bookmark_border_outlined,
+                FavouriteController.instance.isFavourite(widget.job.id) ? Icons.bookmark_outlined : Icons.bookmark_border_outlined,
                 size: 20,
                 color: Colors.black,
               ),

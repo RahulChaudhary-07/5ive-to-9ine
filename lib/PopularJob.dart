@@ -114,7 +114,7 @@ class JobCard extends StatelessWidget {
                     ),
                   ),
                   Icon(
-                    Icons.favorite_outline_sharp,
+                    Icons.bookmark_border_sharp,
                     size: 20,
                     color: Colors.white,
                   ),
