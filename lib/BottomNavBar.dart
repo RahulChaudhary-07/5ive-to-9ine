@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:internship_5to9_1/screens/Profile.dart';
+import 'package:internship_5to9_1/screens/Resume.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key, required this.onChange});
@@ -11,7 +13,7 @@ class BottomNavBar extends StatelessWidget {
     return Container(
       color: Colors.white,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 0),
         child: GNav(
           activeColor: Colors.white,
           backgroundColor: Colors.white,

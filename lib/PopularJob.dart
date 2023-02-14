@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:internship_5to9_1/NearbyJobs.dart';
+
+import 'controllers/favourite_controller.dart';
 
 class StackWidget extends StatefulWidget {
   @override
@@ -7,47 +10,60 @@ class StackWidget extends StatefulWidget {
 
 class _StackWidgetState extends State<StackWidget> {
   final jobs = [
+    Job(id: 8, image: 'assets/PopularJob/1.png', type: 'Product Designer', money: '700/h', time: 'Full Time', location: '', company: ''),
     Job(
-      image: 'assets/PopularJob/1.png',
-      type: 'Product Designer',
-      money: '700/h',
-      duration: 'Full Time',
-    ),
-    Job(
+      id: 9,
       image: 'assets/PopularJob/2.png',
       type: 'Chef',
       money: '200/h',
-      duration: 'Part Time',
+      time: 'Part Time',
+      company: '',
+      location: '',
     ),
     Job(
+      id: 10,
       image: 'assets/PopularJob/3.png',
       type: 'Sweeper',
       money: '1000/h',
-      duration: 'Full Time',
+      time: 'Full Time',
+      company: '',
+      location: '',
     ),
     Job(
+      id: 11,
       image: 'assets/PopularJob/4.png',
       type: 'Driver',
       money: '500/h',
-      duration: 'Part Time',
+      time: 'Part Time',
+      company: '',
+      location: '',
     ),
     Job(
+      id: 12,
       image: 'assets/PopularJob/5.png',
       type: 'Labour',
       money: '500/h',
-      duration: 'Part Time',
+      time: 'Part Time',
+      company: '',
+      location: '',
     ),
     Job(
+      id: 13,
       image: 'assets/PopularJob/6.png',
       type: 'Receptionist',
       money: '100/h',
-      duration: 'Full Time',
+      time: 'Full Time',
+      company: '',
+      location: '',
     ),
     Job(
+      id: 14,
       image: 'assets/PopularJob/7.png',
       type: 'Worker',
       money: '450/h',
-      duration: 'Full Time',
+      time: 'Full Time',
+      company: '',
+      location: '',
     ),
   ];
   @override
@@ -65,12 +81,18 @@ class _StackWidgetState extends State<StackWidget> {
   }
 }
 
-class JobCard extends StatelessWidget {
+class JobCard extends StatefulWidget {
   const JobCard({
     Key? key,
     required this.job,
   }) : super(key: key);
   final Job job;
+
+  @override
+  State<JobCard> createState() => _JobCardState();
+}
+
+class _JobCardState extends State<JobCard> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -87,7 +109,7 @@ class JobCard extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Image.asset(
-              job.image,
+              widget.job.image,
               fit: BoxFit.cover,
             ),
           ),
@@ -107,16 +129,26 @@ class JobCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    job.type,
+                    widget.job.type,
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Icon(
-                    Icons.bookmark_border_sharp,
-                    size: 20,
-                    color: Colors.white,
+                  GestureDetector(
+                    onTap: () async {
+                      if (FavouriteController.instance.isFavourite(widget.job.id)) {
+                        await FavouriteController.instance.removeJob(widget.job);
+                      } else {
+                        await FavouriteController.instance.addJob(widget.job);
+                      }
+                      setState(() {});
+                    },
+                    child: Icon(
+                      FavouriteController.instance.isFavourite(widget.job.id) ? Icons.bookmark_outlined : Icons.bookmark_border_outlined,
+                      size: 20,
+                      color: Colors.white,
+                    ),
                   ),
                 ],
               ),
@@ -125,14 +157,14 @@ class JobCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    job.duration,
+                    widget.job.time,
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    job.money,
+                    widget.job.money,
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -148,16 +180,16 @@ class JobCard extends StatelessWidget {
   }
 }
 
-class Job {
-  final String image;
-  final String type;
-  final String money;
-  final String duration;
+// class Job {
+//   final String image;
+//   final String type;
+//   final String money;
+//   final String duration;
 
-  Job({
-    required this.image,
-    required this.type,
-    required this.money,
-    required this.duration,
-  });
-}
+//   Job({
+//     required this.image,
+//     required this.type,
+//     required this.money,
+//     required this.duration,
+//   });
+// }

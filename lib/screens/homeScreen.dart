@@ -3,6 +3,8 @@ import 'package:internship_5to9_1/NearbyJobs.dart';
 import 'package:internship_5to9_1/PopularJob.dart' hide Job;
 import 'package:internship_5to9_1/BottomNavBar.dart';
 import 'package:internship_5to9_1/controllers/favourite_controller.dart';
+import 'package:internship_5to9_1/screens/Profile.dart';
+import 'package:internship_5to9_1/screens/Resume.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,6 +17,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final tabs = [
     HomeTab(),
     FavScreen(),
+    Resume(),
+    Profile(),
   ];
   int index = 0;
 
@@ -84,17 +88,13 @@ class HomeTab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 10.0, top: 16.0, bottom: 10),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              height: 30,
-              width: 130,
-              child: Text(
-                "Hello, Rahul",
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 20,
-                ),
+            padding: const EdgeInsets.only(left: 16.0, top: 16.0, bottom: 10),
+            child: Text(
+              "Hello, Buddy",
+              style: TextStyle(
+                color: Colors.black,
+                // fontWeight: FontWeight.w400,
+                fontSize: 20,
               ),
             ),
           ),
