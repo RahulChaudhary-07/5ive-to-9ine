@@ -16,6 +16,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black87,
         centerTitle: true,
         elevation: 0,
         automaticallyImplyLeading: false,
@@ -103,13 +104,13 @@ class _ProfileState extends State<Profile> {
       children: [
         Icon(
           icon,
-          color: Colors.grey,
+          color: Colors.black,
         ),
         SizedBox(width: 10),
         Text(
           title,
           style: TextStyle(
-            color: Colors.grey,
+            color: Colors.black,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -119,7 +120,7 @@ class _ProfileState extends State<Profile> {
           child: Icon(
             isSelected ? Icons.toggle_on : Icons.toggle_off,
             size: 34,
-            color: isSelected ? Colors.redAccent : Colors.grey,
+            color: isSelected ? Colors.redAccent : Colors.black,
           ),
         ),
       ],
@@ -262,13 +263,13 @@ class _ProfileState extends State<Profile> {
       children: [
         Icon(
           icon,
-          color: Colors.grey,
+          color: Colors.black,
         ),
         SizedBox(width: 10),
         Text(
           title,
           style: TextStyle(
-            color: Colors.grey,
+            color: Colors.black,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -276,7 +277,7 @@ class _ProfileState extends State<Profile> {
         Text(
           subtitle,
           style: TextStyle(
-            color: Colors.grey,
+            color: Colors.black,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -284,7 +285,7 @@ class _ProfileState extends State<Profile> {
         Icon(
           Icons.arrow_forward_ios,
           size: 14,
-          color: Colors.grey,
+          color: Colors.black,
         ),
       ],
     );

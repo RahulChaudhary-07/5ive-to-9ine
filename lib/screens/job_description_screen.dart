@@ -67,9 +67,9 @@ class _JobDescriptionScreenState extends State<JobDescriptionScreen> {
                                       ),
                                     ),
                                     TextSpan(
-                                      text: '   • Jakarta, Indonesia',
+                                      text: '   • Netrang , Gujarat',
                                       style: TextStyle(
-                                        color: Colors.grey[300],
+                                        color: Colors.grey[500],
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -84,7 +84,7 @@ class _JobDescriptionScreenState extends State<JobDescriptionScreen> {
                             width: 36,
                             margin: EdgeInsets.all(20),
                             decoration: BoxDecoration(
-                              color: Colors.grey[100],
+                              color: Colors.grey[300],
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Icon(
@@ -116,7 +116,7 @@ class _JobDescriptionScreenState extends State<JobDescriptionScreen> {
                             '4 Friends Work Here',
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              color: Colors.grey,
+                              color: Colors.grey[900],
                             ),
                           ),
                         ],
@@ -259,7 +259,7 @@ class _JobDescriptionScreenState extends State<JobDescriptionScreen> {
               title,
               style: TextStyle(
                 fontWeight: FontWeight.w500,
-                color: Colors.grey,
+                color: Colors.grey[900],
               ),
             ),
             SizedBox(height: 4),
