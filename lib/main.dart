@@ -3,7 +3,8 @@ import 'package:internship_5to9_1/controllers/favourite_controller.dart';
 import 'package:internship_5to9_1/core/localstorage.dart';
 import 'package:internship_5to9_1/screens/HomeScreen.dart';
 import 'package:internship_5to9_1/screens/Profile.dart';
-import 'package:internship_5to9_1/screens/Resume.dart';
+
+import 'package:internship_5to9_1/screens/notification_screen.dart';
 // import 'package:internship_5to9_1/screens/SignUpScreen.dart';
 import 'package:internship_5to9_1/screens/splashScreen.dart';
 import 'package:internship_5to9_1/theme/theme.dart';
@@ -39,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         '/initial': (context) => SplashScreen(),
         '/home': (context) => HomeScreen(),
         '/profile': (context) => Profile(),
-        '/resume': (context) => Resume(),
+        '/resume': (context) => NotificationScreen(),
       },
       home: HomeScreen(),
     );

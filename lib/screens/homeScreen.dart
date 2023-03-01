@@ -4,7 +4,8 @@ import 'package:internship_5to9_1/PopularJob.dart' hide Job;
 import 'package:internship_5to9_1/BottomNavBar.dart';
 import 'package:internship_5to9_1/controllers/favourite_controller.dart';
 import 'package:internship_5to9_1/screens/Profile.dart';
-import 'package:internship_5to9_1/screens/Resume.dart';
+
+import 'package:internship_5to9_1/screens/notification_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final tabs = [
     HomeTab(),
     FavScreen(),
-    Resume(),
+    NotificationScreen(),
     Profile(),
   ];
   int index = 0;

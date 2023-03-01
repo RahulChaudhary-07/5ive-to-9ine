@@ -34,7 +34,8 @@ class _SignInScreenState extends State<SignInScreen> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 150, horizontal: 10),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 150, horizontal: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -102,7 +103,8 @@ class _SignInScreenState extends State<SignInScreen> {
                           },
                           child: Text('Submit'),
                           style: ButtonStyle(
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16),
                               ),

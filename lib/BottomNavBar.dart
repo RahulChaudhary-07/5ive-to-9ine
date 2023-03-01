@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:internship_5to9_1/screens/Profile.dart';
-import 'package:internship_5to9_1/screens/Resume.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key, required this.onChange});
@@ -30,8 +28,8 @@ class BottomNavBar extends StatelessWidget {
               text: 'Likes',
             ),
             GButton(
-              icon: Icons.description_outlined,
-              text: 'Resume',
+              icon: Icons.notification_add,
+              text: 'Notifications',
             ),
             GButton(
               icon: Icons.person_outline_sharp,
